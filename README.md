@@ -1,6 +1,6 @@
-# vite-express-react-typescript-template
+# Simple Patient Management App
 
-Template for building full stack project using vite, express, react and typescript.
+Build a simple patient management app.
 
 ![image](./image/image.png)
 
@@ -22,6 +22,8 @@ Template for building full stack project using vite, express, react and typescri
 
 - Vite + React + Typescript
 - Express
+- React Query
+- PostgreSQL
 
 ## Steps to run program
 

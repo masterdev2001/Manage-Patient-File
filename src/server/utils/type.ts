@@ -1,11 +1,11 @@
 export enum Severity {
-  None = "None",
-  Severe = "Severe",
-  Moderate = "Moderate",
+  NONE = "None",
+  SEVERE = "Severe",
+  MODERATE = "Moderate",
 }
 
 export enum Status {
-  Done = "Done",
-  In_Review = "In Review",
-  Progress = "Progress",
+  DONE = "Done",
+  IN_REVIEW = "In Review",
+  PROGRESS = "Progress",
 }
