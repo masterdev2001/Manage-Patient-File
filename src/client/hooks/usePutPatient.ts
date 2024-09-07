@@ -1,10 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 
 import { Patient } from "../lib/type";
+import axiosClient from "../lib/utils";
 
 const updatePatient = async (data: Patient): Promise<Patient> => {
-  const res = await axios.put(`/api/patients/${data.id}`, data);
+  const res = await axiosClient.put(`/${data.id}`, data);
   return res.data;
 };
 

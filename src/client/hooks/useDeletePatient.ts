@@ -1,11 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import { useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 
 import { Patient } from "../lib/type";
+import axiosClient from "../lib/utils";
 
 const deletePatient = async (id: string): Promise<string> => {
-  await axios.delete(`/api/patients/${id}`);
+  await axiosClient.delete(`/${id}`);
   return id;
 };
 

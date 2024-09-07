@@ -11,10 +11,10 @@ import { Patient, Severity, Status } from "./lib/type";
 const App = () => {
   const [data, setData] = useState<string>("");
   const [patient, setPatient] = useState<Patient>({} as Patient);
-  const patients = useGetPatients();
-  const createPatient = usePostPatient();
-  const updatePatient = usePutPatient();
-  const deletePatient = useDeletePatient();
+  const { data: patients, isFetched } = useGetPatients();
+  const { mutateAsync: createPatient } = usePostPatient();
+  const { mutateAsync: updatePatient } = usePutPatient();
+  const { mutateAsync: deletePatient } = useDeletePatient();
   const ref = useRef<HTMLDialogElement>(null);
 
   const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,8 +35,7 @@ const App = () => {
       return;
     }
     const patientData = JSON.parse(data);
-    await createPatient.mutateAsync({
-      id: "",
+    await createPatient({
       patientId: patientData.PatientID,
       name: patientData.PatientName,
       dob: patientData.PatientDOB,
@@ -74,18 +73,18 @@ const App = () => {
     setPatient({ ...patient, comments: e.target.value });
   };
   const onUpdate = async () => {
-    await updatePatient.mutateAsync(patient);
+    await updatePatient(patient);
     ref.current?.close();
   };
   const onDelete = async (id: string) => {
-    await deletePatient.mutateAsync(id);
+    await deletePatient(id);
   };
 
   return (
     <div>
       <input type="file" onChange={onFileChange} />
       <button onClick={onUpload}>Upload</button>
-      {patients.isFetched && (
+      {isFetched && (
         <table>
           <thead>
             <tr>
@@ -102,7 +101,7 @@ const App = () => {
           </thead>
 
           <tbody>
-            {patients.data?.map((patient) => (
+            {patients?.map((patient) => (
               <tr key={patient.id} onClick={() => onClickRow(patient)}>
                 <td>{patient.patientId}</td>
                 <td>{patient.name}</td>

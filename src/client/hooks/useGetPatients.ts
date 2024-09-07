@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 
 import { Patient } from "../lib/type";
+import axiosClient from "../lib/utils";
 
 const getPatients = async (): Promise<Patient[]> => {
-  const res = await axios.get("/api/patients");
+  const res = await axiosClient.get("");
   return res.data;
 };
 
