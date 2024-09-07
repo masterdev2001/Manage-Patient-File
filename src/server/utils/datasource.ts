@@ -14,6 +14,7 @@ const options: DataSourceOptions = {
   entities: {
     Patient,
   },
+  synchronize: true,
 };
 
 const AppDataSource = new DataSource(options);
@@ -21,7 +22,6 @@ const AppDataSource = new DataSource(options);
 export const initializeDataSource = async () => {
   try {
     await AppDataSource.initialize();
-    await AppDataSource.synchronize();
     console.log("Initialized data source successfully.");
   } catch (err) {
     console.error("Error during Data Source initialization", err);

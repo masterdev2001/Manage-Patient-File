@@ -26,7 +26,7 @@ patientRouter.post(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       await createPatient(req.body);
-      res.sendStatus(200).send("Add patient successfully.");
+      res.status(200).send("Add patient successfully.");
     } catch (error) {
       next(error);
     }
@@ -43,7 +43,7 @@ patientRouter.put(
         res.status(404).send("Patient is not exist.");
         return;
       }
-      res.sendStatus(200).send("Update patient successfully.");
+      res.status(200).send("Update patient successfully.");
     } catch (error) {
       next(error);
     }

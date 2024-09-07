@@ -6,42 +6,27 @@ export class Patient {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column()
+  @Column({ type: "int" })
   patientId: number;
 
-  @Column()
+  @Column({ type: "varchar" })
   name: string;
 
-  @Column()
+  @Column({ type: "date" })
   dob: Date;
 
-  @Column()
+  @Column({ type: "date" })
   acquisitionDate: Date;
 
-  @Column()
+  @Column({ type: "varchar" })
   evaluationResult: string;
 
-  @Column()
+  @Column({ type: "enum", enum: Severity })
   severity: Severity;
 
-  @Column()
+  @Column({ type: "enum", enum: Status })
   status: Status;
 
-  @Column()
+  @Column({ type: "varchar" })
   comments: string;
-
-  constructor(data: Patient) {
-    this.updateData(data);
-  }
-
-  updateData(data: Patient) {
-    this.patientId = data.patientId;
-    this.name = data.name;
-    this.dob = data.dob;
-    this.acquisitionDate = data.acquisitionDate;
-    this.evaluationResult = data.evaluationResult;
-    this.severity = data.severity;
-    this.status = data.status;
-    this.comments = data.comments;
-  }
 }

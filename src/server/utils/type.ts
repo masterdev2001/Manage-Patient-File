@@ -1,10 +1,11 @@
-export const enum Severity {
+export enum Severity {
+  None = "None",
   Severe = "Severe",
   Moderate = "Moderate",
 }
 
-export const enum Status {
-  Done = "done",
+export enum Status {
+  Done = "Done",
   In_Review = "In Review",
   Progress = "Progress",
 }
