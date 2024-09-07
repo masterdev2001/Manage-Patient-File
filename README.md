@@ -2,7 +2,15 @@
 
 Template for building full stack project using vite, express, react and typescript.
 
+![image](./image/image.png)
+
 ## Tasks
+
+- Should be able to upload a medical file.
+- Backend should be able to store that file while parsing the file to create a new table row.
+- Should be able to browse the files through table view.
+- Should be able to mutate the file.
+- Use react-query caching strategy so that upon add/mutation of medical files, update the file object stored in cache accordingly, which will remove the need to fetch the data again in the table view.
 
 ## Environment
 
@@ -27,10 +35,16 @@ Template for building full stack project using vite, express, react and typescri
 
    ```env
    PORT="Port to host project"
+   HOST="Address to host server"
+   DB_HOST="Database host address"
+   DB_PORT="Database port"
+   DB_USERNAME="Database username"
+   DB_PASSWORD="Database password"
+   DB_DATABASE="Database name"
    ```
 
 3. Run project
    ```shell
    npm run dev
    ```
-   This will host the project on http://localhost:5173.
+   This will host the project on http://localhost:3000.
