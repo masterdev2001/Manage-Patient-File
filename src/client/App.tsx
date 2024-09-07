@@ -162,7 +162,7 @@ const App = () => {
             <label>Severity:</label>
             <select value={patient.severity} onChange={onChangeSeverity}>
               {Object.entries(Severity).map(([key, value]) => (
-                <option key={key} value={key}>
+                <option key={key} value={value}>
                   {value}
                 </option>
               ))}
@@ -172,7 +172,7 @@ const App = () => {
             <label>StatusReview:</label>
             <select value={patient.status} onChange={onChangeStatusReview}>
               {Object.entries(Status).map(([key, value]) => (
-                <option key={key} value={key}>
+                <option key={key} value={value}>
                   {value}
                 </option>
               ))}

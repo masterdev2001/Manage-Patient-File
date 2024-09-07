@@ -17,8 +17,6 @@ export const usePutPatient = () => {
     onSuccess: async (data) => {
       await queryClient.cancelQueries({ queryKey: ["useGetPatients"] });
       queryClient.setQueryData(["useGetPatients"], (prev: Patient[]) => {
-        console.log(data);
-        console.log(prev.map((p) => (p.id === data.id ? data : p)));
         return prev.map((p) => (p.id === data.id ? data : p));
       });
     },
